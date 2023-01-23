@@ -1,0 +1,33 @@
+{
+    "header": [
+        "About",
+        "Blog",
+        "Learn",
+        "Explore",
+        "Patterns",
+        "Case studies"
+    ],
+    "footer": {
+        "Contribute": [
+            "File a bug",
+            "View source"
+        ],
+        "RelatedContent": [
+            "developer.chrome.com",
+            "Chrome updates",
+            "Case studies",
+            "Podcasts",
+            "Shows"
+        ],
+        "Connect": [
+            "Twitter",
+            "YouTube"
+        ],
+        "google": [
+            "Chrome",
+            "Firebase",
+            "Google Cloud Platform",
+            "All products"
+        ]
+    }
+}
