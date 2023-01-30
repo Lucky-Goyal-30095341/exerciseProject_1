@@ -36,7 +36,7 @@ const Navbar = () => {
                 }
                 {
                     !current &&
-                    <input type="text" autoFocus onBlur={checkSearchInput} className="input-bar"
+                    <input type="text" autoFocus onBlur={checkSearchInput} className="input-bar" placeholder='Search'
                     />
                 }
             </div>

@@ -10,7 +10,7 @@ const Footer = () => {
                     <h3>Contribute</h3>
                     {
                         Data.footer.Contribute.map((item, index) => {
-                            return <li><a href="https://web.dev/" alt="website link" key={index}>{item}</a></li>
+                            return <li><a href="https://web.dev/" alt="website link">{item}</a></li>
                         })
                     }
                 </ul>
@@ -19,7 +19,7 @@ const Footer = () => {
                     <h3>Related Content</h3>
                     {
                         Data.footer.RelatedContent.map((item, index) => {
-                            return <li><a href="https://web.dev/" alt="website link" key={index}>{item}</a></li>
+                            return <li><a href="https://web.dev/" alt="website link">{item}</a></li>
                         })
                     }
                 </ul>
@@ -28,7 +28,7 @@ const Footer = () => {
                     <h3>Connect</h3>
                     {
                         Data.footer.Connect.map((item, index) => {
-                            return <li><a href="https://web.dev/" alt="website link" key={index}>{item}</a></li>
+                            return <li><a href="https://web.dev/" alt="website link">{item}</a></li>
                         })
                     }
                 </ul>
@@ -44,7 +44,7 @@ const Footer = () => {
                     </li>
                     {
                         Data.footer.google.map((item, index) => {
-                            return <li key={index}>
+                            return <li>
                                 <a href='https://developer.chrome.com/'>{item}</a>
                             </li>
                         })

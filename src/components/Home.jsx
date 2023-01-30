@@ -11,64 +11,45 @@ import Footer from "./Footer";
 
 const Home = () => {
 
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
     const [filterData, setFilterData] = useState([]);
-    const [buttonValue, setButtonValue] = useState("Z-A")
+    const [buttonValue, setButtonValue] = useState("A-Z")
 
     const getApiData = () => {
         fetch("https://jsonplaceholder.typicode.com/users")
             .then(res => res.json())
             .then(user => {
-                console.log(user);
-                setData(user);
-                setFilterData(user)
+                // console.log(user);
+                user.sort((a,b)=>{
+                    if(a.name>b.name){
+                        return 1;
+                    }
+                    if(a.name<b.name){
+                        return -1;
+                    }
+                    return 0;
+                });
+                // setData(user);
+                setFilterData(user);
             })
     }
 
     useEffect(() => {
         getApiData();
     }, [])
-
-    // sort in asc order
-    const sortAsc = () => {
-
-        setButtonValue("Z-A");
-        data.sort((a, b) => {
-            if (a.name > b.name) {
-                return 1;
-            }
-            if (a.name < b.name) {
-                return -1;
-            }
-            return 0;
-        });
-        setFilterData(data);
-    }
-    // sort in desc order
-    const sortDesc = () => {
-
-        setButtonValue("A-Z");
-        data.sort((a, b) => {
-            if (a.name > b.name) {
-                return 1;
-            }
-            if (a.name < b.name) {
-                return -1;
-            }
-            return 0
-        }).reverse();
-        setFilterData(data);
-    }
-
+// sorting table data on the base of name
     const handleSort = () => {
-        if (buttonValue === "A-Z") {
+        setButtonValue(buttonValue.split('').reverse().join(''));
+        filterData.reverse();
+    }
 
-            sortAsc();
-        } else {
-            // setButtonValue("ASC");
-            sortDesc();
+    //delete row 
+    const deleteRowData=(id)=>{
+        const text="Are you shure you want to delete data.";
+        if(window.confirm(text)==true){
+            const user= filterData.filter((item, index)=> id!=item.id);
+            setFilterData(user);
         }
-
     }
     return (
         <>
@@ -76,7 +57,7 @@ const Home = () => {
             <div className="outer-container">
                 <div className="left-container">
                     <Search
-                        data={data}
+                        data={filterData}
                         setFilterData={setFilterData}
                     />
                     <button
@@ -87,14 +68,9 @@ const Home = () => {
 
                 </div>
                 <div className="right-container">
-                    {/* {
-                    filterData? <h1>Data Not Found</h1>:
-                    <TableData
-                    data={filterData}
-                    />
-                } */}
                     <Table
                         data={filterData}
+                        delRow={deleteRowData}
                     />
                 </div>
             </div>
